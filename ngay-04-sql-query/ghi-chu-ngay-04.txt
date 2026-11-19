@@ -1,0 +1,29 @@
+Bài tập tự làm
+1.	Lấy tên và giá của các sản phẩm trong danh mục 1 có tồn kho dưới 100.
+Select ProductName , UnitPrice
+From Products 
+Where Stock <100 and CategoryID =1;
+2.	Lấy 10 khách hàng nữ ở Phú Yên (cột Gender = N'F').
+Select Top 10 * 
+From Customers
+Where Gender = N'F' and City = N'Phú Yên';
+
+
+3.	Liệt kê các thành phố giao hàng (ShipCity) khác nhau trong bảng Orders.
+select ShipCity
+from Orders
+group by ShipCity;
+4.	Lấy các đơn hàng đặt trong tháng 3 năm 2025 (gợi ý: dùng BETWEEN với ngày).
+select OrderID
+from Orders
+where OrderDate Between '2025-03-01' and '2025-03-31'; 
+
+5.	Tìm khách hàng có tên bắt đầu bằng "Khách hàng 1" và chưa có email.
+select FullName 
+from Customers
+where FullName Like N'Khách Hàng 1%' and Email = Null; 
+
+6.	Lấy 3 sản phẩm rẻ nhất.
+Select Top 3 *
+From Products
+Order By UnitPrice ;
