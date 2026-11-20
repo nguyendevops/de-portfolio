@@ -1,0 +1,27 @@
+1.	Có bao nhiêu sản phẩm có giá trên 2 triệu?
+SELECT COUNT(*) 
+FROM Products
+WHERE UnitPrice > 20000000 ;
+2.	Tổng giá trị tồn kho (Stock * UnitPrice) của toàn bộ sản phẩm là bao nhiêu?
+SELECT SUM(Stock * UnitPrice)
+FROM Products
+
+3.	Tuổi trung bình khách hàng, tính bằng năm, tại ngày 31/12/2025. Gợi ý: dùng DATEDIFF(YEAR, BirthDate, '2025-12-31').
+SELECT AVG(DATEDIFF(Year,BirthDate,'2025-12-31') * 1.0)
+FROM Customers;
+
+4.	Có bao nhiêu khách hàng nam, bao nhiêu khách hàng nữ? (chưa dùng GROUP BY, viết 2 câu).
+SELECT COUNT(*)
+FROM Customers
+Group By Gender
+5.	Có bao nhiêu đơn hàng thuộc mỗi trạng thái? (chưa học GROUP BY: thử viết 3 câu COUNT với WHERE).
+SELECT COUNT(*)
+FROM Orders
+Group By Status
+6.	Hiển thị tên sản phẩm, tạo cột "Giá VAT 10%" = giá nhân 1,1 và làm tròn 0 chữ số (hàm ROUND).
+SELECT ProductName,ROUND( UnitPrice *1.1,0) As GiaVAT
+FROM Products;
+
+
+
+
